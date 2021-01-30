@@ -8,13 +8,16 @@ var easyBtn = document.querySelector("#easyBtn")
 var hardBtn = document.querySelector("#hardBtn");
 var boxCount = 6;
 var statusText = document.querySelector(".status");
-statusText.textContent = "Let's Play!!";
+var attempts = 0;
+statusText.textContent = "Attempts : " + attempts;
 
 easyBtn.addEventListener("click", function() {
 
     document.querySelector("h1").style.background = '#f88989';
 
-    statusText.textContent = "Let's Play!!";
+    attempts = 0;
+
+    statusText.textContent = "Attempts :" + attempts;
 
     boxCount = 3;
     this.style.background = '#f88989';
@@ -38,7 +41,9 @@ easyBtn.addEventListener("click", function() {
 hardBtn.addEventListener("click", function() {
     document.querySelector("h1").style.background = '#f88989';
 
-    statusText.textContent = "Let's Play!!";
+    attempts = 0;
+
+    statusText.textContent = "Attempts : " + attempts;
 
     this.style.background = '#f88989';
     this.style.color = 'white';
@@ -59,7 +64,7 @@ hardBtn.addEventListener("click", function() {
 playBtn.addEventListener("click", function() {
     document.querySelector('h1').style.background = '#f88989';
 
-    statusText.textContent = "Let's Play!!";
+    statusText.textContent = "Attempts : " + attempts;
 
     colors = generateRandomColor(boxCount);
     pickedColor = colors[Math.floor(Math.random() * boxCount)];
@@ -72,6 +77,7 @@ playBtn.addEventListener("click", function() {
 for (var i = 0; i < colors.length; i++) {
     boxes[i].style.background = colors[i];
     boxes[i].addEventListener('click', function() {
+        attempts ++;
         var selectedColor = this.style.background;
         if (selectedColor == pickedColor) {
             win();
@@ -87,12 +93,13 @@ function win() {
     }
     document.querySelector("h1").style.background = pickedColor;
 
-    statusText.textContent = "Correct";
+    statusText.textContent = "Found in " + attempts + " attempts";
+    attempts = 0;
 }
 
 function loose(a) {
     a.style.background = 'aquamarine';
-    statusText.textContent = "Try Again!";
+    statusText.textContent = "Attempts : " + attempts;
 }
 
 function generateRandomColor(num) {
