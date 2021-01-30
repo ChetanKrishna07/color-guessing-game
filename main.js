@@ -1,6 +1,6 @@
 var boxes = document.querySelectorAll(".box");
 var s = document.querySelector(".rgbSpan");
-var color = generateRandomColor(6);
+var colors = generateRandomColor(6);
 var pickedColor = colors[Math.floor(Math.random() * 6)];
 s.textContent = pickedColor;
 var playBtn = document.querySelector("#playAgain");
