@@ -12,13 +12,24 @@
 
 <body>
 
-    <h1>COLOR GUESSING GAME <br> <span id = "rgbColor">RGB(248, 91, 218)</span> <br> GUESS THE COLOR ABOVE <br> </h1>
+    <h1>COLOR GUESSING GAME<br>
+    <span id = "rgbSpan">RGB(248, 91, 218)</span><br>
+    GUESS THE COLOR ABOVE<br></h1>
     
-    <div>
-        <button class = "red-button">New colours</button>
-        <span>Let's Play!!</span> <!--keep's in the same line-->
-        <button>Easy</button>
-        <button>Hard</button>
+    <div class = "line">
+        <button id = "playAgain">New colours</button>
+        <span class = "status">Let's Play!!</span> <!--keep's in the same line-->
+        <button id = "easyBtn">Easy</button>
+        <button id = "hardBtn">Hard</button>
+    </div>
+
+    <div class = "mainBox">
+        <div class = "box"></div>
+        <div class = "box"></div>
+        <div class = "box"></div>
+        <div class = "box"></div>
+        <div class = "box"></div>
+        <div class = "box"></div>
     </div>
 
     <script src = "./main.js">
