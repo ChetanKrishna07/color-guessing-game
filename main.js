@@ -11,15 +11,19 @@ var statusText = document.querySelector(".status");
 statusText.textContent = "Let's Play!!";
 
 easyBtn.addEventListener("click", function() {
-    document.querySelector("h1").style.background = "#f88989";
+
+    document.querySelector("h1").style.background = '#f88989';
+
     statusText.textContent = "Let's Play!!";
+
     boxCount = 3;
-    this.style.background = "#f88989";
-    this.style.color = 'white';
+    this.style.background = '#f88989';
+    this.style.color = "white";
     hardBtn.style.background = 'white';
-    hardBtn.style.color = "#f88989";
+    hardBtn.style.color = '#f88989';
+
     colors = generateRandomColor(boxCount);
-    pickedColor = colors[Math.floor(Math.random() * boxCount)];
+    pickedColor = colors[Math.floor(Math.random() * 3)];
     s.textContent = pickedColor
 
     for (var i = 0; i < boxes.length; i++) {
@@ -32,13 +36,16 @@ easyBtn.addEventListener("click", function() {
 });
 
 hardBtn.addEventListener("click", function() {
-    document.querySelector("h1").style.background = "#f88989";
+    document.querySelector("h1").style.background = '#f88989';
+
     statusText.textContent = "Let's Play!!";
-    boxCount = 6;
-    this.style.background = "#f88989";
+
+    this.style.background = '#f88989';
     this.style.color = 'white';
     easyBtn.style.background = 'white';
     easyBtn.style.color = "#f88989";
+
+    boxCount = 6;
     colors = generateRandomColor(boxCount);
     pickedColor = colors[Math.floor(Math.random() * boxCount)];
     s.textContent = pickedColor
@@ -51,11 +58,13 @@ hardBtn.addEventListener("click", function() {
 
 playBtn.addEventListener("click", function() {
     document.querySelector('h1').style.background = '#f88989';
+
     statusText.textContent = "Let's Play!!";
+
     colors = generateRandomColor(boxCount);
     pickedColor = colors[Math.floor(Math.random() * boxCount)];
     s.textContent = pickedColor;
-    for var i = 0; i < boxes.length; i++) {
+    for (var i = 0; i < boxes.length; i++) {
         boxes[i].style.background = colors[i];
     }
 });
@@ -64,6 +73,8 @@ for (var i = 0; i < colors.length; i++) {
     boxes[i].style.background = colors[i];
     boxes[i].addEventListener('click', function() {
         var selectedColor = this.style.background;
+        console.log(SelectedColor);
+        console.log(pickedColor);
         if (selectedColor == pickedColor) {
             win();
         } else {
@@ -77,10 +88,12 @@ function win() {
         boxes[i].style.background = pickedColor;
     }
     document.querySelector("h1").style.background = pickedColor;
+
     statusText.textContent = "Correct";
 }
 
 function loose(a) {
+    console.log(a);
     a.style.background = 'aquamarine';
     statusText.textContent = "Try Again!";
 }
@@ -97,9 +110,5 @@ function randomColor() {
     var r = Math.floor(Math.random() * 256);
     var g = Math.floor(Math.random() * 256);
     var b = Math.floor(Math.random() * 256);
-    return newFunction();
-
-    function newFunction() {
-        return 'rgb(' + r + ', ' + g + ', ' + b + ')';
-    }
+    return "rgb(" + r + ", " + g + ", " + b + ")";
 }
