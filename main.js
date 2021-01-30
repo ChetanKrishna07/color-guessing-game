@@ -73,8 +73,6 @@ for (var i = 0; i < colors.length; i++) {
     boxes[i].style.background = colors[i];
     boxes[i].addEventListener('click', function() {
         var selectedColor = this.style.background;
-        console.log(SelectedColor);
-        console.log(pickedColor);
         if (selectedColor == pickedColor) {
             win();
         } else {
@@ -93,7 +91,6 @@ function win() {
 }
 
 function loose(a) {
-    console.log(a);
     a.style.background = 'aquamarine';
     statusText.textContent = "Try Again!";
 }
