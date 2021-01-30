@@ -10,6 +10,7 @@ var boxCount = 6;
 var statusText = document.querySelector(".status");
 var attempts = 0;
 statusText.textContent = "Attempts : " + attempts;
+var completed = False;
 
 easyBtn.addEventListener("click", function() {
 
@@ -62,6 +63,8 @@ hardBtn.addEventListener("click", function() {
 });
 
 playBtn.addEventListener("click", function() {
+
+    completed = False;
     document.querySelector('h1').style.background = '#f88989';
 
     statusText.textContent = "Attempts : " + attempts;
@@ -74,18 +77,21 @@ playBtn.addEventListener("click", function() {
     }
 });
 
-for (var i = 0; i < colors.length; i++) {
-    boxes[i].style.background = colors[i];
-    boxes[i].addEventListener('click', function() {
-        attempts ++;
-        var selectedColor = this.style.background;
-        if (selectedColor == pickedColor) {
-            win();
-        } else {
-            loose(this);
-        }
-    });
+if(!completed) {
+    for (var i = 0; i < colors.length; i++) {
+        boxes[i].style.background = colors[i];
+        boxes[i].addEventListener('click', function() {
+            attempts ++;
+            var selectedColor = this.style.background;
+            if (selectedColor == pickedColor) {
+                win();
+            } else {
+                loose(this);
+            }
+        });
+    }
 }
+
 
 function win() {
     for (var i = 0; i < colors.length; i++) {
@@ -95,6 +101,7 @@ function win() {
 
     statusText.textContent = "Found in " + attempts + " attempts";
     attempts = 0;
+    completed = True;
 }
 
 function loose(a) {
